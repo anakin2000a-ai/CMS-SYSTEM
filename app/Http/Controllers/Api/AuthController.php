@@ -32,7 +32,7 @@ class AuthController extends Controller
         ]);
     }
 
-    // ✅ Login
+    //  Login
     public function login(Request $request)
     {
         $validated = $request->validate([
