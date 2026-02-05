@@ -27,7 +27,6 @@ return new class extends Migration
         
         $table->foreignId('user_id')->constrained()->onDelete('cascade');
         $table->foreignId('category_id')->constrained()->onDelete('cascade');
-        $table->foreignId('featured_image_id')->nullable()->constrained('images')->onDelete('set null');
         });
     }
 

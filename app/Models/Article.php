@@ -40,6 +40,6 @@ class Article extends Model
 
     public function featuredImage()
     {
-        return $this->belongsTo(Image::class, 'featured_image_id');
+        return $this->hasMany(Image::class);
     }
 }

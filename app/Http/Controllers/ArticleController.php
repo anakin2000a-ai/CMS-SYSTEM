@@ -14,11 +14,11 @@ class ArticleController extends Controller
 
     public function CreateArticle(Request $request,ArticleService $articleService)
     {
-         $article = $articleService->create($request);
-        return response()->json([
-            'message' => 'Article created successfully',
-            'data' => $article,
-        ], 201);
+        // return response()->json(['status'=>'s']);
+              $article1 = $articleService->store($request);
+            return $article1;
+}
+
     }
 
     // public function ListArticles(){
@@ -30,10 +30,12 @@ class ArticleController extends Controller
     // public function CreateArticle(){
         
     // }
-    // public function UpdateArticle(){
+    // public function UpdateArticle($id,ArticleService $articleService){
+    //     $article=$articleService->update($id);
+
+    // }
+    // public function DeleteArticle($id,ArticleService $articleService){
+    //     $article=$articleService->delete($id);
         
     // }
-    // public function DeleteArticle(){
-        
-    // }
-}
+

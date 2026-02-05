@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+        $table->id();
         $table->string('url');
         $table->string('thumbnail_url')->nullable();
         $table->text('alt')->nullable();
         $table->integer('width');
         $table->integer('height');
         $table->timestamps();
+        $table->foreignId('article_id')->nullable()->constrained('articles')->onDelete('set null');
+
         });
     }
 
