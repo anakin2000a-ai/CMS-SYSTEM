@@ -3,7 +3,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\NotificationCampaignController;
 use App\Http\Controllers\SubscriberController;
+use App\Models\Notification_campaign;
 
 //any one can see it
 Route::get('/v1/categories',[CategorieController::class,'index']);
@@ -30,6 +32,12 @@ Route::middleware(['auth:sanctum', 'isAuthor'])->group(function () {
     Route::delete('/v1/categories/{id}',[CategorieController::class, 'destroy']);
     //list susubcrebers 
     Route::get('/v1/subscribers', [SubscriberController::class, 'ListSubscribe']);
+
+    //Notifications
+    Route::get('/v1/notifications', [NotificationCampaignController::class, 'ListNotifications']);
+    Route::get('/v1/notifications/{id}', [NotificationCampaignController::class, 'GetCampaignById']);
+    Route::post('/v1/notifications', [NotificationCampaignController::class, 'CreateCampaign']);
+
     //logout
     Route::post('/logout', [AuthController::class, 'logout']);
 
