@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 
 class NotificationsService
@@ -39,12 +40,10 @@ public function CreateNewCampaign(Request $request)
     // Create the new notification campaign with the validated data
     $notification = Notification_campaign::create($validated);
 
-    // Return a success response with the created notification data
     return response()->json([
-        'success' => true,
-        'message' => 'Notification created successfully',
-        'data' => $notification
-    ], 201);
+        'message' => 'Notification campaign created successfully',
+        'notification' => $notification,
+    ], 201); // 201 Created status code
 }
 
 

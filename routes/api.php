@@ -37,6 +37,7 @@ Route::middleware(['auth:sanctum', 'isAuthor'])->group(function () {
     Route::get('/v1/notifications', [NotificationCampaignController::class, 'ListNotifications']);
     Route::get('/v1/notifications/{id}', [NotificationCampaignController::class, 'GetCampaignById']);
     Route::post('/v1/notifications', [NotificationCampaignController::class, 'CreateCampaign']);
+    Route::post('/v1/notifications/{id}/send', [NotificationCampaignController::class, 'SendCampaign']);
 
     //logout
     Route::post('/logout', [AuthController::class, 'logout']);
